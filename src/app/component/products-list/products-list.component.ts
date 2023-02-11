@@ -8,6 +8,7 @@ import { Product } from 'src/app/model/Product';
 })
 export class ProductsListComponent {
   products: Product[] = [];
+  cart:Product[] = [];
   constructor() { }
   ngOnInit() {
     return this.products = [
@@ -54,5 +55,9 @@ export class ProductsListComponent {
         "description": "Wear it with style!"
       }
     ]
+  }
+  addToCart(product: Product): void { 
+    this.cart.push(product);
+    alert(JSON.stringify(this.cart))
   }
 }
