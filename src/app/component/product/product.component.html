@@ -1,1 +1,13 @@
-<p>product works!</p>
+<div class="product-container">
+  <div class="product-container">
+    <img src={{product.url}} alt={{product.description}} class="product-image">
+    <div>
+      <p>{{product.name}}</p>
+      <p>$ {{product.price}}</p>
+      <form class="select-input">
+        <input class="number-input" type="number" name="qty" id="qty">
+      </form>
+      <button>Add to cart</button>
+    </div>
+  </div>
+</div>
