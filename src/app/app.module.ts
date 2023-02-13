@@ -8,6 +8,9 @@ import { ProductsListComponent } from './component/products-list/products-list.c
 import { ProductComponent } from './component/product/product.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ConfirmationComponent } from './component/confirmation/confirmation.component';
+import { ProductDetailComponent } from './component/product-detail/product-detail.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { ConfirmationComponent } from './component/confirmation/confirmation.com
     ProductsListComponent,
     ProductComponent,
     CartComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
