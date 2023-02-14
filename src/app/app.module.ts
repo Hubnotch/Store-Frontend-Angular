@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './component/product-detail/product-detai
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { CheckoutInfoComponent } from './component/checkout-info/checkout-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     ProductComponent,
     CartComponent,
     ConfirmationComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CheckoutInfoComponent
   ],
   imports: [
     BrowserModule,
