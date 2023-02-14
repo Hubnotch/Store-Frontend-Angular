@@ -1,4 +1,4 @@
-.header {
+/* .header {
   text-align: center;
   background: #33B5E5;
   color: #fff;
@@ -11,4 +11,9 @@ a {
 
 nav a:first-child {
   margin-right:15px;
+} */
+
+.shopping-cart {
+  color: #ffffff;
+  font-size:2rem;
 }

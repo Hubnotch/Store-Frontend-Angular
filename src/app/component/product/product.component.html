@@ -1,13 +1,24 @@
-<div class="product-container">
-  <div class="product-container">
-   <a routerLink="/product-detail/{{product.id}}"><img src={{product.url}} alt={{product.description}} class="product-image"></a>
-    <div>
-      <p>{{product.name}}</p>
-      <p>$ {{product.price}}</p>
-      <form class="select-input">
-        <input class="number-input" type="number" name="qty" id="qty">
-      </form>
-      <button (click)="addItemToCart(product)">Add to cart</button>
+<div class="card product-card">
+  <a routerLink="products/{{product.id}}" routerLinkActive="active">
+    <img src="{{product.url}}" class="card-img-top" alt={{product.name}}>
+  </a>
+  <div class="card-body">
+    <h4 class="card-title">{{product.name}}</h4>
+    <div class="container">
+      <div class="row flex justify-content-end">
+        <p class="card-text">{{product.price | currency: "USD"}}</p>
+      </div>
     </div>
+    <p>{{product.description}}</p>
+
+    <form (ngSubmit)="addProductToCart(product)">
+      <select [(ngModel)]="selectedItem" class="product-item-detail form-select"
+        (ngModelChange)="selectedChange($event)" [ngModelOptions]="{standalone:true}">
+        <option *ngFor="let value of productCount" value={{value}}>
+          {{value}}
+        </option>
+      </select>
+      <input type="submit" value="Add to cart" class="mt-4 btn btn-primary3 product-add-to-cart">
+    </form>
   </div>
 </div>

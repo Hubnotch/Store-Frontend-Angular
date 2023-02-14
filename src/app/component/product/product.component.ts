@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/model/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,13 +10,14 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent {
   @Input() product!: Product;
-  selectedItem = '1';
+  selectedItem:string = '1';
   productCount: string[] = ['1', '2', '3', '4', '5'];
 
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
-  constructor(private productService:ProductService, private cartService:CartService) {}
-  ngOnInit():void {}
-  selectedChange(value: any): void { 
+  ngOnInit(): void { }
+
+  selectedChange(value: any): void {
     this.selectedItem = value;
   }
 
@@ -33,8 +34,8 @@ export class ProductComponent {
       alert(message);
     }
     this.refresh();
-}
+  }
   refresh(): void {
     window.location.reload();
-}
+  }
 }
