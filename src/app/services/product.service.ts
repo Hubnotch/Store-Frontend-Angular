@@ -19,5 +19,14 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-
+  getProduct(): Observable<Product[]> { 
+    return this.http.get<Product[]>(this.url);
+  }
+  addProduct(product: Product[]):void {
+    this.storage.setItem('products', JSON.stringify(product));
+  }
+  getProductsById(id: number): Observable<Product>{
+    const uri = `${this.url}/${id}`;
+    return this.http.get<Product>(uri).pipe(catchError(this.handleError<Product>(`getProduct id=${id}`)));
+  }
 }
