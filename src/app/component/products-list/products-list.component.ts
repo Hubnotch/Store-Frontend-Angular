@@ -9,16 +9,18 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-  title:string = 'Product List';
+  title: string = 'Product List';
   products: Product[] = [];
-private ngUnsubscribe = new Subject<void>();
-  constructor(private productService:ProductService) { }
-  ngOnInit():void {
+
+  private ngUnsubscribe = new Subject<void>();
+  constructor(private productService: ProductService) { }
+  
+  ngOnInit(): void {
     this.productService.getProduct().pipe(takeUntil(this.ngUnsubscribe)).subscribe({
-      next: (data:Product[])=>{
+      next: (data: Product[]) => {
         this.products = data
       },
-      error:(err:Error)=> console.log(err)
+      error: (err: Error) => console.log(err)
     })
   }
 }
