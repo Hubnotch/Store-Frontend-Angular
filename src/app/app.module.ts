@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CheckoutInfoComponent } from './component/checkout-info/checkout-info.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CheckoutInfoComponent } from './component/checkout-info/checkout-info.c
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     FormsModule,
     AppRoutingModule,
     FontAwesomeModule,
