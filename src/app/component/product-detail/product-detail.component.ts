@@ -33,7 +33,10 @@ export class ProductDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.id = Number(params.get('id'));
     })
-    this.productService.getProduct().pipe(takeUntil(this.ngUnsubscribe)).subscribe({
+    this.productService
+      .getProduct()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
       next: (res: Product[]) => {
         this.products = res;
         this.product = this.getProductDetails(this.id);

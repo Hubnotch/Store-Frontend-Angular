@@ -6,7 +6,9 @@ import { Product } from '../model/Product';
 })
 export class CartService {
   storage = window.localStorage;
+
   constructor() { }
+  
   getCartProduct(): Product[] {
     const getProduct = this.storage.getItem('products');
     return getProduct ? JSON.parse(getProduct) : [];

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +12,7 @@ import { ConfirmationComponent } from './component/confirmation/confirmation.com
 import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutInfoComponent } from './component/checkout-info/checkout-info.component';
 import { RouterModule } from '@angular/router';
 
@@ -24,15 +25,17 @@ import { RouterModule } from '@angular/router';
     CartComponent,
     ConfirmationComponent,
     ProductDetailComponent,
-    CheckoutInfoComponent
+    CheckoutInfoComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

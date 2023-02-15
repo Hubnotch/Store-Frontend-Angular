@@ -14,13 +14,16 @@ export class ProductsListComponent implements OnInit {
 
   private ngUnsubscribe = new Subject<void>();
   constructor(private productService: ProductService) { }
-  
+
   ngOnInit(): void {
-    this.productService.getProduct().pipe(takeUntil(this.ngUnsubscribe)).subscribe({
-      next: (data: Product[]) => {
-        this.products = data
-      },
-      error: (err: Error) => console.log(err)
-    })
+    this.productService
+      .getProduct()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (data: Product[]) => {
+          this.products = data
+        },
+        error: (err: Error) => console.log(err)
+      });
   }
 }

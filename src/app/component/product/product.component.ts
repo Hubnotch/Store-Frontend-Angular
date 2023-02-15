@@ -13,7 +13,10 @@ export class ProductComponent {
   selectedItem:string = '1';
   productCount: string[] = ['1', '2', '3', '4', '5'];
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void { }
 
