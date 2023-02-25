@@ -5,15 +5,15 @@ import { Product } from '../model/Product';
   providedIn: 'root'
 })
 export class CartService {
-  storage = window.localStorage;
+  // storage = window.localStorage;
 
   constructor() { }
   
   getCartProduct(): Product[] {
-    const getProduct = this.storage.getItem('products');
-    return getProduct ? JSON.parse(getProduct) : [];
+    const getProduct = window.localStorage.getItem('products');
+    return Array.isArray(getProduct) ? JSON.parse(getProduct) : [];
   }
   clearCart(): void {
-    this.storage.clear();
+    window.localStorage.clear();
   }
 }

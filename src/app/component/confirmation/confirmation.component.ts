@@ -13,8 +13,8 @@ export class ConfirmationComponent {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.firstName = params.get('firstName');
-      this.totalPrice = Number(params.get('totalPrice'));
+      this.firstName = params.get('firstName') || '';
+      this.totalPrice = Number(params.get('totalPrice')) || 0;
     });
   }
 }
