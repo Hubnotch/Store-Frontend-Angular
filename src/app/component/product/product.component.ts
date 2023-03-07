@@ -10,12 +10,12 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent {
   @Input() product!: Product;
+  productOptionCount: string[] = ['1', '2', '3', '4', '5'];
   selectedItem:string = '1';
-  productCount: string[] = ['1', '2', '3', '4', '5'];
 
   constructor(
+    private cartService: CartService,
     private productService: ProductService,
-    private cartService: CartService
   ) { }
 
   ngOnInit(): void { }
@@ -29,10 +29,10 @@ export class ProductComponent {
     let productInCart = cartProducts.find(product => product.id === product.id);
     if (productInCart) {
       productInCart.amount = this.selectedItem;
-      productInCart ? this.productService.addProduct(cartProducts) : null;
+      productInCart ? this.productService.addProductToCart(cartProducts) : null;
     } else {
       cartProducts.push(Object.assign(product, { amount: this.selectedItem }));
-      this.productService.addProduct(cartProducts);
+      this.productService.addProductToCart(cartProducts);
       const message = `${product.name} has been added to your cart.`;
       alert(message);
     }

@@ -13,10 +13,10 @@
 
     <form (ngSubmit)="addProductToCart(product)">
       <select 
-      [(ngModel)]="selectedItem" class="product-item-detail form-select"
       (ngModelChange)="selectedChange($event)" [ngModelOptions]="{standalone:true}"
+      [(ngModel)]="selectedItem" class="product-item-detail form-select"
       >
-        <option *ngFor="let value of productCount" value={{value}}>
+        <option *ngFor="let value of productOptionCount" value={{value}}>
           {{value}}
         </option>
       </select>

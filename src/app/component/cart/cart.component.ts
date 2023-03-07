@@ -52,7 +52,7 @@ export class CartComponent implements OnInit {
     localStorage.setItem('products', JSON.stringify(updatedProducts));
     this.calculateTotal();
     this.refersh();
-  }
+  } 
 
   // calculateTotal(): void {
   //   this.totalPrice = this.cartProducts.reduce((total, product) => {

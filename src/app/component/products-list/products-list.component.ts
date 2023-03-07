@@ -17,7 +17,7 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService
-      .getProduct()
+      .getAllProduct()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
         next: (data: Product[]) => {

@@ -7,11 +7,12 @@ import { ConfirmationComponent } from './component/confirmation/confirmation.com
 
 const routes: Routes = [
   { path: '', component: ProductsListComponent },
-  { path: 'product-detail/:id', component: ProductDetailComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
   {
     path:'success/:firstName/:totalPrice',component:ConfirmationComponent
-  }
+  },
+  {path:'**', redirectTo:'', pathMatch:'full'}
 ];
 
 @NgModule({
