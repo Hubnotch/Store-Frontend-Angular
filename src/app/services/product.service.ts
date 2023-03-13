@@ -11,12 +11,6 @@ export class ProductService {
   storage = window.localStorage;
   url = 'http://localhost:4200/assets/data.json';
 
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     return of(result as T);
-  //   }
-  // }
-
   constructor(private http: HttpClient) { }
 
   getAllProduct(): Observable<Product[]> { 
@@ -28,6 +22,6 @@ export class ProductService {
   getProductsById(id: number): Observable<Product>{
     const uri = `${this.url}/${id}`;
     return this.http.get<Product>(uri)
-      // .pipe(catchError(this.handleError<Product>(`getProduct id=${id}`)));
+
   }
 }
