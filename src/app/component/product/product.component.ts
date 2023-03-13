@@ -24,20 +24,24 @@ export class ProductComponent {
     this.selectedItem = value;
   }
 
+
+
   addProductToCart(product: Product): void {
     const cartProducts: Product[] = this.cartService.getCartProduct();
-    let productInCart = cartProducts.find(product => product.id === product.id);
+    const productInCart = cartProducts.find(item => item.id === product.id);
     if (productInCart) {
       productInCart.amount = this.selectedItem;
-      productInCart ? this.productService.addProductToCart(cartProducts) : null;
+      this.productService.addProductToCart(cartProducts);
     } else {
-      cartProducts.push(Object.assign(product, { amount: this.selectedItem }));
+      const cartProduct = { ...product, amount: this.selectedItem };
+      cartProducts.push(cartProduct);
       this.productService.addProductToCart(cartProducts);
       const message = `${product.name} has been added to your cart.`;
       alert(message);
     }
     this.refresh();
   }
+
   refresh(): void {
     window.location.reload();
   }
